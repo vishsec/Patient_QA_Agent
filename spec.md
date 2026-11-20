@@ -26,3 +26,6 @@
 7. Done bars:
 same as In-Scope 
 
+
+8. Descisons made :
+- [ ] planted PII on one patient (P002) to check the Masking functionality of the process.  

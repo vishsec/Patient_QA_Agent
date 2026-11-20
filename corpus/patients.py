@@ -84,7 +84,7 @@ P002 = Patient(
         Meds(name="Metformin", dose="1000mg", frequency="twice daily", week=3),
     ],
     notes=[
-        Note(week=1, text="Initiated Metformin 500mg. Normal renal baseline with Creatinine 0.8 mg/dL and BUN 14 mg/dL."),
+        Note(week=1, text="Initiated Metformin 500mg. Contact Rohan Mehta at 9876543210 for queries. Normal renal baseline with Creatinine 0.8 mg/dL and BUN 14 mg/dL."),
         Note(week=2, text="Tolerating medication well without GI upset; Creatinine 0.9 mg/dL."),
         Note(week=3, text="Renal function stable at Creatinine 0.8 mg/dL; increased Metformin to 1000mg."),
     ],
