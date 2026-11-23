@@ -31,3 +31,14 @@ def test_one_actual_data():
     assert "<PHONE_NUMBER>" in masked
 
 
+#for personal sanity check after i dropped data time from entity to analyse which will change after v1
+def test_clinical_values_check(): 
+    values = [
+        "twice daily",
+        "every 8 hours",
+        "creatine 1.4mg/dL",
+        "Metaformin 500mg",
+    ] 
+    for s in values:
+        assert mask_pii(s) == s, f"mangled: {s!r} -> masked{mask_pii(s)}" #!r is raw represention to not miss spaces so it return 'text' insteadof just text
+

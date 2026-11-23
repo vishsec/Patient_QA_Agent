@@ -52,7 +52,8 @@ def mask_pii(text : str) -> str:
     if not text:
         return text
 
-    findings = _engine.analyze(text = text, language="en")
+    findings = _engine.analyze(text = text, language="en",entities=["PERSON", "PHONE_NUMBER"]) # dropping date_time will come back later after project finishes 
+    # ik Birth dates , admission dataes are PHI but synteheic dat doesn thave it ill add to ti and and update this after project v1
     trimmed_clean_findings = _fix_overlapped(findings)
 
     masked = text
