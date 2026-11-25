@@ -34,7 +34,7 @@ def _load_env() -> None:
 def connect(): 
     _load_env()
     return psycopg.connect(
-        host="localhost", 
+        host=os.environ.get("POSTGRES_HOST", "localhost"), 
         user=os.environ.get("POSTGRES_USER"),
         port=5432, 
         dbname= os.environ.get("POSTGRES_DB"),

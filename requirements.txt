@@ -6,3 +6,5 @@
  pytest==9.2.0
  sentence-transformers==6.3.0
  pgvector==0.5.1
+ mcp==2.3.0
+ 
