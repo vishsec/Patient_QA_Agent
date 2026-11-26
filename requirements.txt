@@ -7,4 +7,7 @@
  sentence-transformers==6.3.0
  pgvector==0.5.1
  mcp==2.3.0
- 
+ langgraph==1.2.24
+ fastapi==0.165.0
+ uvicorn==0.54.0
+ google-genai==3.6.1
