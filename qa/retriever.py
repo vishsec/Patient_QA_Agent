@@ -24,7 +24,7 @@ def _parse(result) -> list[dict]:
 RETRIEVERS = {"local": search_local, "mcp": search_mcp}
 
 def get_retrievers():
-    return RETRIEVERS(os.environ.get("search_state", "local"))
+    return RETRIEVERS[os.environ.get("search_state", "local")]
 
 
 

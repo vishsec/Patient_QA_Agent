@@ -5,13 +5,13 @@ FIXTURES = Path("tests/fixtures/replay")
 
 def complete(prompt : str) -> str:
     mode = os.environ.get("LLM_MODE", "replay")
-    key = hashlib.sha256(prompt.encode()).hexdigest
+    key = hashlib.sha256(prompt.encode()).hexdigest()
 
     if mode == "replay":
         path = FIXTURES / f"{key}.json"
         if not path.exists():
-            return RuntimeError(f"json file does not exist for prompt: {prompt} in replay mode")
-        return json.loads(path)["text"]
+            raise RuntimeError(f"json file does not exist for prompt: {prompt} in replay mode")
+        return json.loads(path.read_text())["text"]
 
     from google import genai
     client = genai.Client(api_key=os.environ["api_key"])

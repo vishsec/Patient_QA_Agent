@@ -1,6 +1,6 @@
 from typing import TypedDict
-from qa.retriever import get_retriever
-from llm import complete
+from qa.retriever import get_retrievers
+from qa.llm import complete
 from langgraph.types import interrupt, Command
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
@@ -18,7 +18,7 @@ class State(TypedDict):
 def build_my_prompt(question: str, chunks : list[dict]) -> str:
     lines = sorted(chunks, key = lambda c: (c["patient_id"], c["week"] or 0))
     contx = "\n".join(
-        f"[{c["patient_id"]}/week={c["week"]}/{c["kind"]}] [{c["text"]}]" for c in lines
+        f"[{c['patient_id']}/week={c['week']}/{c['kind']}] [{c['text']}]" for c in lines
     )
     prompt =(
             "Answer only from this chart, Cite as [patient_id/week/kind] if not in the sources say you don't know "
@@ -27,7 +27,7 @@ def build_my_prompt(question: str, chunks : list[dict]) -> str:
     return prompt
 
 def make_graph(retriever = None):
-    retriever = retriever or get_retriever
+    retriever = retriever or get_retrievers()
 
     async def retrieve(state : State):
         return {"chunks" : await retriever(state["question"], k=3)}

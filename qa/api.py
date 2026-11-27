@@ -30,7 +30,7 @@ async def ask(req: AskReq):
 @app.post("/approve")
 async def approve(req : ApproveReq):
     cfg = {"configurable": {"thread_id": req.thread_id}} # Memory Saver() loads back the state. 
-    result = graph.ainvoke(
+    result = await graph.ainvoke(
         Command(resume={"approved": req.approved, "edits": req.edits}), # decision.get checks for "approved" in approve fn of graph
         cfg)
     return {"thread_id": req.thread_id, "status": result.get("status"), "answer": result.get("answer")}
