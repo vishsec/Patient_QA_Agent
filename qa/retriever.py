@@ -8,7 +8,7 @@ async def search_mcp(query: str, k :int=3) -> list[dict]:
     from mcp import ClientSession
     from mcp.client.streamable_http import streamable_http_client
 
-    url = os.environ.get("MCP_URL", "http://127.0.0.1:8000/mcp")
+    url = os.environ.get("MCP_URL", "http://127.0.0.1:8080/mcp")
     async with streamable_http_client(url) as (read, write): # open te connection
         async with ClientSession(read,write) as session: # perform ops on the connection 
             await session.initialize() # handshake with server
