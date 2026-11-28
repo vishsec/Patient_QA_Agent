@@ -95,7 +95,7 @@ def test_replay_with_fixtures(monkeypatch): # checks since we have seed_replay f
 # why? - fields could get dropped, connection URLS failing. sorting changing could happen.
 
 def test_mcp_local_graph():
-    root = Path(__file__).parent[1] # makes sure it gets the root dir which is "1" folder above tests
+    root = Path(__file__).parents[1] # makes sure it gets the root dir which is "1" folder above tests
     proc = subprocess.Popen( # sub process opened up seperate from the test flow so it doesnt block the main process or mcp server 
         [sys.executable, "-m", "mcp_server.server"],
         env={**os.environ, "MCP_PORT":"8001"},

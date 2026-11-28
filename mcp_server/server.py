@@ -36,7 +36,7 @@ server.tool()(run_formula)
 
 if __name__ == "__main__":
     import os
-    server.run(transport="streamable-http", host="0.0.0.0", port=int(os.environ.get("MCP_PORT","8000"))) 
+    server.run(transport="streamable-http", host="0.0.0.0", port=int(os.environ.get("MCP_PORT","8080"))) 
 
 
 

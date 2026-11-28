@@ -1,0 +1,4 @@
+{
+  "text": "The dose was reduced because creatinine rose [P001/week=3/note].",
+  "prompt": "Answer only from this chart, Cite as [patient_id/week/kind] if not in the sources say you don't know \n Sources : \n[P001/week=1/note] [Started Lisinopril 10mg. Baseline Creatinine 1.1 mg/dL and Potassium 4.3 mmol/L.]\n[P001/week=3/note] [Creatinine rose to 1.4 mg/dL and Potassium reached 5.1 mmol/L; reduced Lisinopril to 5mg.]\n[P010/week=1/note] [Started Hydrochlorothiazide 25mg; baseline Sodium 141 mmol/L and Creatinine 0.9 mg/dL.]\n\n Question: Why was lisinopril reduced to 5mg?"
+}
